@@ -1,0 +1,34 @@
+name: Check Changeset
+
+on:
+    pull_request:
+        branches:
+            - develop
+        paths-ignore:
+            - "docs/**"
+            - "**/*.md"
+            - ".vscode/**"
+            - ".github/workflows/**"
+
+jobs:
+    validate-changeset:
+        name: Verify Changelog File
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout Código
+              uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
+                  token: ${{ secrets.BOT_GITHUB_TOKEN }}
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 22
+
+            - name: Install Dependencies
+              run: npm install
+
+            - name: Validate the existence of Changeset
+
+              run: npx changeset status --since=origin/develop
