@@ -1,0 +1,47 @@
+{
+  "name": "@ethereal-design/ui-design-tokens",
+  "version": "0.0.0",
+  "type": "module",
+  "main": "./dist/json/index.json",
+  "types": "./dist/json/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/json/index.d.ts",
+      "import": "./dist/json/index.json",
+      "require": "./dist/json/index.json",
+      "default": "./dist/json/index.json"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build:tokens": "style-dictionary build --config sd.config.js --verbose",
+    "build:types": "node ./src/scripts/generate-type.js",
+    "build:package": "npm run build:types && npm run build:tokens",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release": "changeset publish",
+    "version-check": "changeset status --since=origin/develop"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ethereal-Design-System/ethereal-ui-design-tokens.git"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ethereal-Design-System/ethereal-ui-design-tokens/issues"
+  },
+  "homepage": "https://github.com/Ethereal-Design-System/ethereal-ui-design-tokens#readme",
+  "description": "",
+  "devDependencies": {
+    "@changesets/changelog-github": "^0.7.0",
+    "style-dictionary": "^4.4.0"
+  }
+}
+
