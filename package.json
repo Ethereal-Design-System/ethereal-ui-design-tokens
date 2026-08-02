@@ -10,7 +10,11 @@
       "import": "./dist/json/index.json",
       "require": "./dist/json/index.json",
       "default": "./dist/json/index.json"
-    }
+    },
+    "./css": "./dist/css/variables.css",
+    "./tailwind": "./dist/css/tailwind.css",
+    "./css/*": "./dist/css/*",
+    "./tailwind/*": "./dist/css/tailwind/*"
   },
   "files": [
     "dist"
