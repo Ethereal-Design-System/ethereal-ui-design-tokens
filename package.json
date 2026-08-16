@@ -1,6 +1,6 @@
 {
   "name": "@ethereal-design/ui-design-tokens",
-  "version": "0.1.0",
+  "version": "0.0.0",
   "type": "module",
   "main": "./dist/json/index.json",
   "types": "./dist/json/index.d.ts",
@@ -10,13 +10,17 @@
       "import": "./dist/json/index.json",
       "require": "./dist/json/index.json",
       "default": "./dist/json/index.json"
-    }
+    },
+    "./css": "./dist/css/variables.css",
+    "./tailwind": "./dist/css/tailwind.css",
+    "./css/*": "./dist/css/*",
+    "./tailwind/*": "./dist/css/tailwind/*"
   },
   "files": [
     "dist"
   ],
   "scripts": {
-    "build:tokens": "style-dictionary build --config sd.config.js --verbose",
+    "build:tokens": "rm -rf dist &&node sd.config.js",
     "build:types": "node ./src/scripts/generate-type.js",
     "build:package": "npm run build:types && npm run build:tokens",
     "changeset": "changeset",
