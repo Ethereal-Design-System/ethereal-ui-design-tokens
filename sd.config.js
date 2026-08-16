@@ -7,7 +7,7 @@ import { cssPxValueTransform } from "./src/sd/transforms/cssPxValueTransform.js"
 const SOURCE = ["./src/tokens.json"]
 
 const build = async () => {
-  const webSD = new StyleDictionary({
+  const cssSD = new StyleDictionary({
     source: SOURCE,
     preprocessors: ["custom/preprocessor"],
     hooks: {
@@ -58,7 +58,7 @@ const build = async () => {
     },
   })
 
-  const mobileSD = new StyleDictionary({
+  const universalSD = new StyleDictionary({
     source: SOURCE,
     platforms: {
       json: {
@@ -72,8 +72,8 @@ const build = async () => {
     },
   })
 
-  await webSD.buildAllPlatforms()
-  await mobileSD.buildAllPlatforms()
+  await cssSD.buildAllPlatforms()
+  await universalSD.buildAllPlatforms()
 }
 
 build()
