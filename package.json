@@ -20,7 +20,7 @@
     "dist"
   ],
   "scripts": {
-    "build:tokens": "style-dictionary build --config sd.config.js --verbose",
+    "build:tokens": "rm -rf dist &&node sd.config.js",
     "build:types": "node ./src/scripts/generate-type.js",
     "build:package": "npm run build:types && npm run build:tokens",
     "changeset": "changeset",
